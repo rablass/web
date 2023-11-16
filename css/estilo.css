@@ -1,0 +1,435 @@
+* {
+	box-sizing: border-box;
+}
+body 
+{
+   font-family: "Sans Serif"; /* Es el tipo de letra o fuente */
+   font-size: 13px;
+}
+p {
+	color: white;
+}
+a {
+	display: inline-block; /*El elemento aparece en línea pero se comporta como un
+						  elemento block.Se trabaja cuando se quiere dar anchura al elemento*/
+	text-decoration: none; /*Para que los link no tengan delineado */
+}
+header {
+	background-color: #FCFAFA; /*Atributo que permite cambiar el fondo del contenedor 
+								seleccionado en este caso header*/
+    padding: 10px 0; /*despues del contenido esta el relleno con esta configuracion hacemos 
+    				que arriba y abajo del relleno haya un espacio de 10px y a la izquierda
+    				y derecha 0 pixceles*/
+    position: fixed; /*hace que el elemento este fijo y te persiga por todos lados como
+    						 el encabezado*/
+    top: 0; /*Las propiedades top y bottom especifican el desplazamiento vertical desde su
+     posición original; las propiedades left y right especifican su desplazamiento horizontal*/
+    left: 0;
+    width: 100%;
+    border-style: solid;
+	border-color: white;
+	z-index: 2; /*es como si los elementos fueran capas, la sección inicio se va a colocar
+    				 encima, poque header no esta ocupando espacio.*/
+}
+
+header .container {
+	display: flex;     /*permite acomodar, le da espacio a sus elementos hijos como 
+						<nav> y <a>, Desde ese contenedor vamos a poder especificar la
+						alineación de los elementos que hay dentro, el tamaño de los elementos
+						que contienen y distribuir el espacio restante que hay entre los elementos
+						del contenedor Flex, y todo esto en una sola dirección, ya sea una 
+						horizontal o vertical. Es decir, podemos distribuir los elementos que
+						contiene la etiqueta sin poner nada dentro de esos elementos.*/
+	justify-content: space-between ;
+	align-items: center;
+}
+header .container .logo
+{
+	width: 50px;
+	border-radius: 50%;
+	border-style: solid;
+	border-color: blue;
+}
+header .container nav a
+{
+	color: azul;
+	text-decoration: none;
+	margin: 0 15px;
+	font-family: serif;
+}
+header .container h1
+{
+	color: #F3FF00;
+	font-family: impact;
+	font-size: 30px;
+	letter-spacing: 18px;
+	text-shadow: -3px -3px 1px #000, 2px 2px 1px #000
+	/*otros ejemplos: text-shadow: -2px -2px 1px #000, 2px 2px 1px #000, -2px 2px 1px #000, 2px -2px 1px #000;
+	text-shadow: -3px -3px 3px #000
+	text-shadow: -2px -2px 1px #000;*/
+}
+.container{
+		width: 100%; /*debemos olvidar que existe un container fuera*/
+	}
+
+/*SELECTOR POR ID INICIO*/
+#inicio {
+	position: relative; /*Si la posicion es relativa el objeto ocupa un lugar en el espacio*/
+}
+#inicio img {
+	width: 100%; /*la imagen ya tiene un ancho y un alto*/
+	display: block; /*Un elemento block siempre tiene algo de espacio por encima y debajo, que
+				 lo separa de los demás elementos, y no acepta ningún otro elemento a su lado*/
+}
+#inicio .bloque-inicio{
+	position: absolute; /*el objeto no ocupa un lugar en el espacio y permite que el elemneto
+						hijo pueda ocupar un espacio sobre el elemento padre*/
+	top: 20%;
+	left: 30%;
+	width: 600px;
+	text-align: justify;
+	margin-left: -200px; /*solo los margenes tienen valores negativos*/
+}
+#inicio .bloque-inicio h1{
+	color: #F3FF00;
+	text-shadow: -3px -3px 3px #000;
+	font-size: 50px; /*tamaño de la letra*/
+	animation: mover-izquierda-derecha 5s infinite;
+}
+@keyframes mover-izquierda-derecha {
+	from {
+		transform: translateX(-100px);
+	}
+	to {
+		transform: translateX(200px);
+	}
+}
+#inicio .bloque-inicio p{
+	color: black;
+	font-size: 30px;
+	animation: mover-arriba-abajo 5s infinite;
+}
+@keyframes mover-arriba-abajo {
+	from {
+		transform: translateY(-50px);
+	}
+	to {
+		transform: translateY(50px);
+	}
+}
+
+/*SELECTOR POR ID NOSOTROS*/
+#nosotros{
+	background-color: #000; 
+}
+#nosotros p{
+	color: white;              
+	text-align: justify;
+	font-size: 26px;
+	/*margin: 0; */
+}
+#nosotros h3{
+	color: red;              
+	text-align: center;
+	font-size: 26px;
+	/*margin: 0; */
+}
+/*SELECTOR POR ID GATOS*/
+#gatos{
+	background-image: url(../imagenes/gato13.png);
+	background-size: cover; /*Si la imagen no tiene una proporción propia, 
+	entonces se representa al tamaño de la zona de posicionamiento de fondo.*/ 
+	border: solid;
+}
+#gatos p {
+	color: #FFFF00;
+	font-size: 40px;
+	font-family: fantasy;
+	text-align: center;
+	text-shadow: -2px -2px 5px red, /*conocido como el efecto NEON o fluorescente */
+	0 0 25px white,
+	0 0 50px white,
+	0 0 100px black;
+	letter-spacing: 5px;
+	cursor: pointer;
+	text-transform: uppercase; /*permite que las letras se transformen a mayúsculas */
+}
+#gatos ul {
+	font-size: 30px;
+	color: white;	
+	padding-left: 40%;
+}
+
+#gatos ul li {
+	margin-bottom: 10px;
+}
+#gatos ol {
+	font-size: 30px;	
+	color: white;
+	padding-left: 40%;
+}
+#gatos ol li {
+	margin-bottom: 10px;
+}
+
+/*SELECTOR POR ID SERVICIOS*/
+#servicios .bloque-servicio{
+	border: 3px solid orange; /*cada contenido tiene un borde que esta invisible si 
+								lo configuramos como solido, este se mostrara*/
+	background-color: #9199C1; /*Esta opcion te permite ponerle un color al fondo
+								 de la pantalla del contenedor*/
+	width: 100%; /*Permite ajustar el ancho de la pantalla al 100%*/
+	height:100%;
+}
+#servicios .bloque-servicio .bloque-contenido-servicio{
+	text-align: center; /*En este caso permite centrar los enlaces*/
+	padding-bottom: 5%; /*Permite crear un espacio en la parte inferior del contenido*/
+}
+#servicios .bloque-servicio .bloque-contenido-servicio h3 {
+	font-size: 25px; /*tamaño de letra*/
+	color: black; /*color de la letra*/
+	font-family: Verdana; /*tipo de letra*/
+	text-shadow: -1px -1px 1px #000; /*Sombra en las letras*/
+	letter-spacing: 10px; /*Espacio entre letras*/
+	text-align: center; /*Permite centrar el titulo de nivel 3*/
+} 
+#servicios .bloque-servicio .bloque-contenido-servicio P {
+	font-size: 20px; /*tamaño de la letra*/
+	text-align: justify; /*Ajusta la letra al mismo nivel entre lineas*/
+}
+
+/*SELECTOR POR CLASE INICIO*/
+
+.boton {
+	text-align: center; /**/
+	text-decoration: none; /**/
+	padding: 15px 20px; /**/
+}
+.boton.boton-azul{
+	color: white;
+	background-color: blue;
+	font-size: 30px;
+	font-weight: bold;
+	border: solid;
+	border-color: white;
+	border-block-color: black;
+}
+.boton.boton-azul:hover{
+	color: black;
+	background-color: white;/*Es el color del fondo del boton cuando el
+								 cursor la visita*/
+}
+.boton.boton-blanco{
+	color: red;
+	background-color: white;
+	font-size: 16px;
+	font-weight: bold;  /*sombra o profundidad de una letra*/
+	border: 2px solid red;
+}
+.boton.boton-blanco:hover {
+	color: black;
+	background-color: pink;
+}
+
+/*SELECTOR POR CLASE NOSOTROS*/
+.seccion {
+	padding-top: 60px;
+	padding-bottom: 60px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+/*SELECTOR POR CLASE SERVICIOS*/
+.row {
+	display: flex; /*Esta propiedad permite que los objetos se posicionen en una
+					 sola linea*/
+	flex-wrap: wrap; /* Si un elemento no se ajusta, se ira abajo */
+}
+.columna {
+	padding-right: 15px; /*Es el espacio fuera del contenido derecho */
+	padding-left: 15px; /*padding significa relleno */
+}
+.columna-33{
+	width: 33.33%; /*Como la pantalla ocupa un 100% la dividiremos en 3 para los tres 
+					servicios*/
+}
+.cuadrado-perfecto{
+	width: 100%; /*a una pagina se le puede dar un ancho, no pasa lo mismo con el alto */
+	padding-bottom: 100%; /* con esta opcion obtenemos el cuadrado, pero la imagen no 
+						tiene un espacio esta al aire por ello se posiciona debajo de la 
+						imagen un cuadrado invisible*/
+	position: relative; /*con esta propiedad hago que ocupe un lugar en el espacio*/
+}
+.cuadrado-perfecto img{
+	width: 100%; /*En porcentaje para que la imagen se ajuste al div */
+	height: 100%;
+	object-fit: cover;  /*esta propiedad solo funciona para etiquetas imagen y video
+								Si la imagen no tiene una proporción propia,entonces se 
+								representa al tamaño de la zona de posicionamiento de fondo*/
+	object-position: center;
+	position: absolute; /*Esta propiedad hace que la imagen no ocupe un lugar en el
+							 espacio y permite ajustar la imagen sobre el cuadrado, 
+							 ya que la imagen se halla flotando*/
+	top: 0;
+	left: 0;
+} 
+
+/*SELECTOR POR ID GALERIA*/
+#galeria h4{
+	padding-right: 15px; /**/
+	padding-left: 15px; /**/
+	text-align: center; /**/
+	position: absolute; /*significa que no tiene posicion en el espacio*/
+	top: 40%; /**/
+	color: white; /**/
+	font-size: 28px; /**/
+	width: 100%; /*para que el texto se centre mejor*/
+}
+#galeria img{
+	filter: grayscale(1); /*para que la imagen se muestre en blanco y negro*/
+	border: 7px dotted #00FF00; /**/
+}
+#galeria .cuadrado-perfecto:hover img{
+	filter: grayscale(0); /*con esta propiedad reacciona la imagen es decir que
+						 cuando yo ponga el puntero la imagen retomara su color*/
+}
+#galeria .cuadrado-perfecto:hover h4{
+	 display: none; /**/
+}
+#galeria h1{
+	 color: #00FF00;/**/	
+	 font-size: 60px; /**/
+	 text-shadow: -3px -3px 1px red, /*conocido como el efecto NEON o fluorescente */
+	 0 0 25px #00FF99,
+	 0 0 50px #00FF99,
+	 0 0 100px #00FF99;
+	 text-align: center; /**/
+	 background-color: #006633 ; /**/
+	 font-family: verdana;
+	 border: 4px outset #006633; /**/
+	 letter-spacing: 10px; /**/
+	 padding: 2%; /**/
+	 margin-bottom: 0; /**/
+}
+/*SELECTOR POR CLASE GALERIA*/
+.container-fluid{
+	width: 100%; /*no es necesario centrar aqui porque esta al 100%*/
+	margin-left: 15px; /*la distancia al lado derecho del margen*/
+	margin-right: 15px; /*la distancia al lado izquierdo del margen*/
+	position: relative; /*porque tambien ocupan un lugar en el espacio*/
+}
+
+/*SELECTOR POR ID CONTACTENOS*/
+#contactenos{
+	position: relative;/*El contenido ocupa un lugar en el espacio*/
+	background-color: #FFFF99;
+	border: double; /*Es un tipo de borde*/
+}
+#contactenos h1{
+	color: #0066FF;
+	text-align: center;
+	font-size: 45px;
+	text-shadow: -2px 3px 1px #000, 2px 2px 1px #000;
+}
+#contactenos form{
+	padding: 60px; /*es para el tamaño interno del objeto*/
+	background-color: #66CCFF; /*para el color interno de las tablas*/
+	width: 600px; /*para el ancho del contenido --> tabla*/
+	margin-left: 20%;
+	border: 4px solid black;
+}
+#contactenos form label{
+	color: blue;
+	font-size: 16px; 
+	font-family: impact;
+	letter-spacing: 7px;
+}
+#contactenos form .form-block{
+	width: 100%;
+   margin-bottom: 15px;
+}
+#contactenos form .form-block .form-control{
+	display: block; /*solo un elemento por linea*/
+	height: 40px; /*Es el alto de cada input*/
+	width: 100%; /*Es el ancho de cada input, se ajustara al 100%*/
+	font-size: 16px;
+	border: 1px solid grey; /*es el grueso del borde, vista y color*/	
+	padding-inline: 5px 10px; 
+}
+#contactenos form .form-block textarea{
+	display: block; /**/
+	height: 100px; /*Es el alto de cada input*/
+	font-size: 16px;
+	border: 1px solid grey; /*es el grueso del borde, vista y color*/
+	width: 100%;
+	padding-inline: 5px 10px;
+}
+#contactenos form .form-block .bloque-ultimo{
+	display: block; /**/
+	height: 100px; /*Es el alto de cada input*/
+	font-size: 16px;
+	border: 1px solid grey; /*es el grueso del borde, vista y color*/
+	width: 100%;
+	padding-inline: 5px 10px;	
+}
+/*SELECTOR POR CLASE CONTACTENOS*/
+.columna-formulario{
+	padding-left: 15%;
+}
+.boton.boton-negro{
+	color: white;
+	background-color: black;/*Es el color del fondo del boton*/
+	font-size: 30px;
+	font-weight: bold;
+
+}
+.boton.boton-negro:hover{
+	color: blue;
+	background-color: white;/*Es el color del fondo del boton cuando el cursor 
+							la visita*/
+}
+
+
+footer {
+	background-color: black;
+	color: white;
+	padding-top: 60px;
+}
+footer .barra-footer {
+	background-color: grey;
+	text-align: center;
+	padding: 15px 20px;	
+}
+footer ul
+{
+	padding-left: 0px;
+	list-style: none; /*para que los ul no tengan esos puntitos*/
+	margin: 0;
+}
+footer ul li
+{
+	margin-bottom: 15px; /*para que haya espacio entre lineas*/
+}
+
+footer .logo-footer {
+	width: 100px;
+	border-radius: 50%;
+}
+footer p {
+	color: white;
+	margin-bottom: 80px;
+}
+footer a {
+	color: white; /*color de la fuente*/
+}
+footer .redes
+{
+	font-size: 60px;
+	display: flex;
+}
+footer .redes a
+{
+	margin: 0 7.5px;
+}
+
+
